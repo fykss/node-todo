@@ -9,12 +9,12 @@ router.post('/notes', function (req, res) {
 
 router.put('/notes/:id', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).end('{ "status": "success ID" }');
+    res.status(200).end('{ "status": "success" }');
 });
 
 router.delete('/notes/:id', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).end('{ "status": "success delete ID" }');
+    res.status(200).end('{ "status": "success" }');
 });
 
 module.exports = router;
