@@ -1,1 +1,67 @@
-h1 Hellow World
+doctype html
+html(lang='en')
+    head
+        include ../../components/Head/Head
+    body
+        nav.navbar.navbar-light.border-bottom
+            div.container
+                a.navbar-brand.d-flex.align-items-center(href='/')
+                    i.fas.fa-pen-square.fa-2x.pr-2
+                    span.navbar-brand-slogan ToDoList
+                ul.navbar-nav.d-flex.justify-content-end.flex-row
+                    li.nav-item
+                        a.nav-link(href='/')
+                            i.fas.fa-redo-alt
+                    li.nav-item
+                        a.nav-link
+                            i.fas.fa-trash-alt
+                    li.nav-item.dropdown
+                        a#navbarDropdownMenuLink-333.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                            i.fas.fa-user
+                        .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
+                            a.dropdown-item(href='#') Action
+                            a.dropdown-item(href='#') Another action
+        section.container.my-4
+            .row.d-flex.justify-content-center
+                .col-md-6.d-flex
+                    .btn-group.col-11.px-0
+                        button.btn.btn-create.btn-default(type='button', data-toggle='dropdown', aria-expanded='false')
+                            span Create card
+                        .dropdown-menu.drp-notes-position(role='menu')
+                            form.form-horizontal(role='form', method='POST')
+                                .form-group
+                                    input#title.form-control.form-title(name='title', type='text', placeholder='Title')
+                                .form-group
+                                    input#description.form-control.display-1(name='description', type='text', placeholder='Note...')
+                                    ul.navbar-nav.d-flex.flex-row.justify-content-end
+                                        li.nav-item.mx-3
+                                            button(type='submit') Save
+                                        li.nav-item.mx-3
+                                            a(href='')
+                                                i.fas.fa-palette
+                                        li.nav-item.mx-3
+                                            a(href='')
+                                                i.fas.fa-image
+                                        li.nav-item.mx-3
+                                            a(href='')
+                                                i.fas.fa-times
+                    .btn-group.col-1.px-0
+                        button.btn.btn-check.btn-default.rounded(type='button', data-toggle='dropdown', aria-expanded='false')
+                            i.far.fa-check-square
+                        .dropdown-menu.drp-notes-list-position(role='menu')
+                            form.form-horizontal(role='form')
+                                .form-group
+                                    input.form-control.form-title(type='text', placeholder='Title')
+                                .form-group
+                                    input.form-control.display-1(type='text', placeholder='Note...')
+                            ul.navbar-nav.d-flex.flex-row.justify-content-end
+                                li.nav-item.mx-3
+                                    a(href='')
+                                        i.fas.fa-palette
+                                li.nav-item.mx-3
+                                    a(href='')
+                                        i.fas.fa-image
+                                li.nav-item.mx-3
+                                    a(href='')
+                                        i.fas.fa-times
+    include ../../components/BodyScripts/BodyScripts

@@ -8,7 +8,7 @@ const ListNote = mongoose.models.ListNote;
 router.get('/lists/:id', function (req, res) {
     listNote.find({}, function(err, data){
         if(err){
-            return req.status(400).end('{ "status" : "failed" }');
+            return res.status(400).end('{ "status" : "failed" }');
         }
         res.render('Index/Index', {data});
     })
@@ -23,9 +23,9 @@ router.post('/lists', function (req,res) {
     });
     listNote.save(function (err) {
         if(err){
-            return req.status(400).end('{ "status" : "failed" }');
+            return res.status(400).end('{ "status" : "failed" }');
         }
-        req.status(200).end('{ "status" : "success" }');
+        res.status(200).end('{ "status" : "success" }');
     });
 });
 
@@ -44,9 +44,10 @@ router.put('/lists/:id', function (req,res) {
             title: req.body.title,
             description: req.body.description,
             done: req.body.done
-        },function(err, res) {
+        },function(err, data) {
             if(err){
-                return req.status(400).end('{ "status" : "failed" }');
+                console.log(err);
+                return res.status(400).end('{ "status" : "failed" }');
             }
             res.status(200).end('{ "status" : "success" }');
     });
@@ -56,7 +57,7 @@ router.put('/lists/:id', function (req,res) {
 router.delete('/lists/:id', function (req,res) {
     ListNote.deleteOne({_id: req.params.id }, function (err) {
         if (err) {
-            return req.status(400).end('{ "status" : "failed" }');
+            return res.status(400).end('{ "status" : "failed" }');
         }
         res.status(200).end('{ "status" : "success" }');
     });
