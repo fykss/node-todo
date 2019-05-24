@@ -1,0 +1,80 @@
+.fa-pen-square {
+    color: #f5b80f;
+}
+
+.navbar-brand-slogan {
+    color: #63676c;
+    font-size: 1.3rem;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
+    background: none;
+}
+
+.nav-item {
+    margin-left: 25px;
+}
+
+.btn-create {
+    padding: 11px;
+    width: 100%;
+    border-radius: .4rem;
+    font-weight: 300;
+    background-color: #F1F3F4;
+    color: #6d757d;
+}
+
+.btn-create span {
+    text-align: left;
+    display: block;
+}
+
+.btn-check {
+    padding: 11px 9px 11px 9px;
+    border-radius: .4rem;
+    font-weight: 300;
+    background-color: #F1F3F4;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
+}
+
+
+.drp-notes-position {
+    transform: translate3d(0px, -0.2rem, 0px) !important;
+    width: 111% !important;
+}
+.drp-notes-list-position{
+    top: -5% !important;
+    left: -1104% !important;
+    width: 1184%;
+    transform: translate3d(0,0,0) !important;
+}
+
+.form-control {
+    padding: 10px;
+    white-space: normal;
+    border: 0;
+}
+.form-title::placeholder {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.btn-check {
+    border-radius: .4rem !important;
+    left: -4px;
+}
+
+.navbar-nav .fas {
+    color: #6d757d;
+}
+.btn-delete{
+    border: transparent;
+    background: transparent;
+}
+#exampleModalScrollable{
+
+}
