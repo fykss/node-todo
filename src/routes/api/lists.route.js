@@ -9,7 +9,7 @@ router.get('/lists/:id', function (req, res) {
     listNote.find({}, function(err, data){
         if(err){
             return req.status(400).end('{ "status" : "failed" }');
-        }x ;knbfvdcnm;
+        }
         res.render('Index/Index', {data});
     })
 });
