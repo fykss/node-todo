@@ -1,8 +1,11 @@
 const { Router } = require('express');
-const router = new Router();
+const mongoose = require('mongoose');
 
-router.get('/', function (req, res) {
-    res.render("Index/Index");
+const router = new Router();
+const ListNote = mongoose.models.ListNote;
+
+router.get('/', async function (req, res) {
+    res.render("Index/Index", {notes: await ListNote.find()});
 });
 
 module.exports = router;

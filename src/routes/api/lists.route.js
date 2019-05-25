@@ -21,11 +21,12 @@ router.post('/lists', function (req,res) {
         title: req.body.title,
         description: req.body.description
     });
-    listNote.save(function (err) {
+    listNote.save(function (err, data) {
         if(err){
             return res.status(400).end('{ "status" : "failed" }');
         }
-        res.status(200).end('{ "status" : "success" }');
+        console.log(data);
+        res.status(200).end('{ "status" : "success", "id": "'+ data._id +'"}');
     });
 });
 

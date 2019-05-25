@@ -1,0 +1,15 @@
+mixin Note (note)
+    div(class="note col-3" id=`${note._id}`)
+        div.card
+            div.card-body
+                h5(class="card-title")=`${note.title}`
+                p(class="card-text")=`${note.description}`
+                div.pt-3.d-flex.justify-content-end
+                    a(class="pl-4 btn-edit" data-toggle="modal" data-target=".modal-example")
+                        i.fas.fa-pen
+                    a.pl-4
+                        i.far.fa-image
+                    a.pl-4
+                        i.fas.fa-palette
+                    div(class="pl-4 btn-delete")
+                        i.fas.fa-times

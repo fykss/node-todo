@@ -1,3 +1,5 @@
+include ../../components/Note/Note
+
 doctype html
 html(lang='en')
     head
@@ -28,14 +30,14 @@ html(lang='en')
                         button.btn.btn-create.btn-default(type='button', data-toggle='dropdown', aria-expanded='false')
                             span Create card
                         .dropdown-menu.drp-notes-position(role='menu')
-                            form.form-horizontal(role='form', method='POST')
+                            form.form-horizontal#form-add(role='form', method='POST')
                                 .form-group
                                     input#title.form-control.form-title(name='title', type='text', placeholder='Title')
                                 .form-group
                                     input#description.form-control.display-1(name='description', type='text', placeholder='Note...')
                                     ul.navbar-nav.d-flex.flex-row.justify-content-end
                                         li.nav-item.mx-3
-                                            button(type='submit') Save
+                                            input(id="create-note" type='button' value="Save")
                                         li.nav-item.mx-3
                                             a(href='')
                                                 i.fas.fa-palette
@@ -64,4 +66,14 @@ html(lang='en')
                                 li.nav-item.mx-3
                                     a(href='')
                                         i.fas.fa-times
+        section.container#all-notes
+            div.row.block-note
+                each note in notes
+                    +Note(note)
+        section#modal
+            div.modal.fade.modal-example#exampleModalScrollable(tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true")
+                div.modal-dialog.modal-dialog-scrollable(role="document")
+                    div.modal-content
+                        div.modal-header
+                            include ../../components/NoteDetails/NoteDetails
     include ../../components/BodyScripts/BodyScripts
