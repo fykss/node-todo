@@ -75,6 +75,32 @@
     border: transparent;
     background: transparent;
 }
-#exampleModalScrollable{
-
+#create-note{
+    border: none;
+    background-color: transparent;
+    color: #495057;
+    font-size: 15px;
+}
+#create-note:hover{
+    color: #495057;
+}
+.btn-create{
+    border-top-right-radius: .4rem !important;
+    border-bottom-right-radius: .4rem !important;
+}
+.col-11 {
+    flex: none;
+    max-width: 100%;
+}
+#modal-save{
+    border: none;
+    background-color: transparent;
+    color: #495057;
+    font-size: 15px;
+}
+.form-modal{
+    width: 100%;
+}
+#modal-save{
+    padding: 10px;
 }

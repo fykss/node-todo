@@ -1,3 +1,5 @@
+include ../../components/Note/Note
+
 doctype html
 html(lang='en')
     head
@@ -12,15 +14,6 @@ html(lang='en')
                     li.nav-item
                         a.nav-link(href='/')
                             i.fas.fa-redo-alt
-                    li.nav-item
-                        a.nav-link
-                            i.fas.fa-trash-alt
-                    li.nav-item.dropdown
-                        a#navbarDropdownMenuLink-333.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                            i.fas.fa-user
-                        .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
-                            a.dropdown-item(href='#') Action
-                            a.dropdown-item(href='#') Another action
         section.container.my-4
             .row.d-flex.justify-content-center
                 .col-md-6.d-flex
@@ -28,40 +21,22 @@ html(lang='en')
                         button.btn.btn-create.btn-default(type='button', data-toggle='dropdown', aria-expanded='false')
                             span Create card
                         .dropdown-menu.drp-notes-position(role='menu')
-                            form.form-horizontal(role='form', method='POST')
+                            form.form-horizontal#form-add(role='form', method='POST')
                                 .form-group
                                     input#title.form-control.form-title(name='title', type='text', placeholder='Title')
                                 .form-group
                                     input#description.form-control.display-1(name='description', type='text', placeholder='Note...')
                                     ul.navbar-nav.d-flex.flex-row.justify-content-end
                                         li.nav-item.mx-3
-                                            button(type='submit') Save
-                                        li.nav-item.mx-3
-                                            a(href='')
-                                                i.fas.fa-palette
-                                        li.nav-item.mx-3
-                                            a(href='')
-                                                i.fas.fa-image
-                                        li.nav-item.mx-3
-                                            a(href='')
-                                                i.fas.fa-times
-                    .btn-group.col-1.px-0
-                        button.btn.btn-check.btn-default.rounded(type='button', data-toggle='dropdown', aria-expanded='false')
-                            i.far.fa-check-square
-                        .dropdown-menu.drp-notes-list-position(role='menu')
-                            form.form-horizontal(role='form')
-                                .form-group
-                                    input.form-control.form-title(type='text', placeholder='Title')
-                                .form-group
-                                    input.form-control.display-1(type='text', placeholder='Note...')
-                            ul.navbar-nav.d-flex.flex-row.justify-content-end
-                                li.nav-item.mx-3
-                                    a(href='')
-                                        i.fas.fa-palette
-                                li.nav-item.mx-3
-                                    a(href='')
-                                        i.fas.fa-image
-                                li.nav-item.mx-3
-                                    a(href='')
-                                        i.fas.fa-times
+                                            input(id="create-note" type='button' value="save")
+        section.container#all-notes
+            div.row.block-note
+                each note in notes
+                    +Note(note)
+        section#modal
+            div.modal.fade.modal-example#exampleModalScrollable(tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true")
+                div.modal-dialog.modal-dialog-scrollable(role="document")
+                    div.modal-content
+                        div.modal-header
+                            include ../../components/NoteDetails/NoteDetails
     include ../../components/BodyScripts/BodyScripts
