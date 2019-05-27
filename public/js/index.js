@@ -16,12 +16,26 @@ $(document).ready(function() {
         }
     });
 
-    $('#modal-save').on('click', function (e) {
+    $('body').on('click', '.btn-delete',  function (event) {
+        let id = $(event.target).closest('.note').attr('id');
+        jQuery.ajax({
+            url: `/api/lists/${id}`,
+            async: true,
+            method: 'DELETE',
+            dataType: 'json',
+            success: function() {
+                $(event.target).closest('.note').remove();
+            }
+        });
+    });
+
+    $('#modal-save').on('click', function (event) {
         jQuery.ajax({
             url: '/api/lists/' + $('#form-note').attr('data-id'),
             data: {
                 title: $('#form-note .title').val(),
-                description: $('#form-note .description').val()
+                description: $('#form-note .description').val(),
+                // done: $("#isChecked").val()
             },
             async: true,
             method: 'PUT',
@@ -39,7 +53,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#create-note').on('click', function (e) {
+    $('#create-note').on('click', function (event) {
         jQuery.ajax({
             url: '/api/lists',
             data: {
@@ -55,8 +69,11 @@ $(document).ready(function() {
                                 <div class="card-body">
                                     <h5 class="card-title">${$('#form-add [name="title"]').val()}</h5>
                                     <p class="card-text">${$('#form-add [name="description"]').val()}</p>
-                                    <div class="pt-3 d-flex justify-content-end"><a class="pl-4 btn-edit" data-toggle="modal" data-target=".modal-example"><i class="fas fa-pen"></i></a><a class="pl-4"><i class="far fa-image"></i></a><a class="pl-4"><i class="fas fa-palette"></i></a>
-                                        <div class="pl-4 btn-delete"><i class="fas fa-times"></i></div>
+                                    <div class="pt-3 d-flex justify-content-end">
+                                    <a class="pl-4 btn-edit" data-toggle="modal" data-target=".modal-example">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                    <div class="pl-4 btn-delete"><i class="fas fa-times"></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +82,6 @@ $(document).ready(function() {
                 $('#form-add [name="title"]').val("");
                 $('#form-add [name="description"]').val("");
             }
-        })
-
-    })
+        });
+    });
 });
